@@ -95,13 +95,13 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      style={{ padding: "120px 24px 80px", position: "relative" }}
+      style={{ padding: "clamp(60px, 10vw, 120px) 16px", position: "relative" }}
     >
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1.6fr",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
             gap: 72,
           }}
         >
@@ -142,6 +142,7 @@ export default function Contact() {
                   key={i}
                   style={{
                     display: "flex",
+flexWrap: "wrap",
                     alignItems: "center",
                     gap: 10,
                     marginBottom: 12,
@@ -168,6 +169,7 @@ export default function Contact() {
               <div
                 style={{
                   display: "flex",
+flexWrap: "wrap",
                   alignItems: "center",
                   gap: 8,
                   marginBottom: 8,
@@ -225,7 +227,7 @@ export default function Contact() {
               <div
                 style={{
                   borderRadius: 20,
-                  padding: 50,
+                  padding: "clamp(20px, 5vw, 50px)",
                   background: "#060c18",
                   border: "1px solid #0f1a2e",
                 }}
@@ -233,7 +235,7 @@ export default function Contact() {
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
                     gap: 20,
                     marginBottom: 20,
                   }}

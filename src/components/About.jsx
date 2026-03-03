@@ -5,7 +5,7 @@ import { useScrollReveal } from "./hooks";
 
 const PERSONAL = {
   name: "Rawlo Dudhisty",
-  role: "Full Stack Developer"
+  role: "Full Stack Developer",
 };
 
 export default function About() {
@@ -15,7 +15,7 @@ export default function About() {
   return (
     <section id="about" ref={ref} style={{ padding: "120px 24px", background: "#040810" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 72, alignItems: "start" }}>
 
           {/* Left — Bio */}
           <div style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(28px)", transition: "all 0.7s ease" }}>
@@ -26,14 +26,16 @@ export default function About() {
 
             {/* Profile card */}
             <div style={{ borderRadius: 16, padding: 22, background: "#060c18", border: "1px solid #0f1a2e", marginBottom: 24 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
-                <div style={{ width: 52, height: 52, borderRadius: "50%", background: "linear-gradient(135deg,#22d3ee,#a78bfa)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 22, color: "#030711", flexShrink: 0 }}>R</div>
+              <div style={{ display: "flex",
+flexWrap: "wrap", alignItems: "center", gap: 14, marginBottom: 18 }}>
+                <div style={{ width: 52, height: 52, borderRadius: "50%", background: "linear-gradient(135deg,#22d3ee,#a78bfa)", display: "flex",
+flexWrap: "wrap", alignItems: "center", justifyContent: "center", fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 22, color: "#030711", flexShrink: 0 }}>R</div>
                 <div>
                   <div style={{ fontFamily: "Georgia, serif", fontWeight: 900, fontSize: "1.15rem", color: "#f1f5f9" }}>{PERSONAL.name}</div>
                   <div style={{ fontFamily: "'Courier New', monospace", fontSize: 16, color: "#22d3ee", marginTop: 2 }}>{PERSONAL.role}</div>
                 </div>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 8 }}>
                 {[
                   ["🎓", "NIST Berhampur", "CSE 2022–2026"],
                   ["📍", "Berhampur, Odisha", "Open to Remote"],
@@ -53,7 +55,8 @@ export default function About() {
               I&apos;m honest about being a <strong style={{ color: "#22d3ee" }}>beginner who ships</strong>. Every project is a chance to level up — and clients get someone who is hungry, detail-obsessed, and 100% committed to results.
             </p>
 
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+            <div style={{ display: "flex",
+flexWrap: "wrap", gap: 8, flexWrap: "wrap" }}>
               {[
                 ["⬡ GitHub",   PERSONAL.githubUrl],
                 ["in LinkedIn", PERSONAL.linkedinUrl],
@@ -71,7 +74,7 @@ export default function About() {
             </div>
           </div>
 
-          <div style={{ marginTop: 22, padding: 50, borderRadius: 14, background: "#060c18", border: "1px solid #22d3ee1a", opacity: visible ? 1 : 0, transition: "opacity 1.2s 0.8s" }}>
+          <div style={{ marginTop: 22, padding: "clamp(20px, 5vw, 50px)", borderRadius: 14, background: "#060c18", border: "1px solid #22d3ee1a", opacity: visible ? 1 : 0, transition: "opacity 1.2s 0.8s" }}>
             <div style={{ fontFamily: "'Courier New', monospace", fontSize: 17, color: "#22d3ee", fontWeight: 700, marginBottom: 18 }}>🚀 Honest about being a student.</div>
             <p style={{ fontFamily: "'Courier New', monospace", fontSize: 17, color: "#5e7eaa", lineHeight: 1.8 }}>I don&apos;t fake seniority. These are real levels — improving every week. You get a developer who learns fast, ships clean code, and treats your project like it&apos;s their own.</p>
             <div style={{ fontFamily: "'Courier New', monospace", fontSize: 17, color: "#334155", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 16 }}></div>
@@ -82,7 +85,8 @@ export default function About() {
             ].map(([num, title, desc]) => (
               <div
                 key={num}
-                style={{ display: "flex",gap: 14,alignItems: "flex-start",width: "100%", marginBottom: 12, padding: "14px 18px", borderRadius: 12, background: "#060c18", border: "1px solid #0f1a2e", transition: "border-color 0.25s" }}
+                style={{ display: "flex",
+flexWrap: "wrap",gap: 14,alignItems: "flex-start",width: "100%", marginBottom: 12, padding: "14px 18px", borderRadius: 12, background: "#060c18", border: "1px solid #0f1a2e", transition: "border-color 0.25s" }}
                 onMouseEnter={(e) => e.currentTarget.style.borderColor = "#22d3ee22"}
                 onMouseLeave={(e) => e.currentTarget.style.borderColor = "#0f1a2e"}
               >

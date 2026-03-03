@@ -12,7 +12,8 @@ export default function Hero({ scrollTo }) {
       id="home"
       style={{
         minHeight: "100dvh",
-        display: "flex", flexDirection: "column",
+        display: "flex",
+flexWrap: "wrap", flexDirection: "column",
         alignItems: "center", justifyContent: "center",
         position: "relative", textAlign: "center",
         padding: "120px 24px 60px",
@@ -66,7 +67,8 @@ export default function Hero({ scrollTo }) {
 </p>
 
       {/* CTA buttons */}
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center", marginBottom: 64, animation: "fadeUp 0.6s 0.27s ease both" }}>
+      <div style={{ display: "flex",
+flexWrap: "wrap", gap: 12, flexWrap: "wrap", justifyContent: "center", marginBottom: 64, animation: "fadeUp 0.6s 0.27s ease both" }}>
         <button
           onClick={() => scrollTo("Projects")}
           style={{ padding: "15px 36px", borderRadius: 100, background: "#22d3ee", color: "#030711", fontFamily: "'Courier New', monospace", fontWeight: 900, fontSize: 14, letterSpacing: "0.1em", textTransform: "uppercase", border: "none", cursor: "pointer", boxShadow: "0 0 36px #22d3ee44", transition: "all 0.25s" }}
@@ -96,9 +98,11 @@ export default function Hero({ scrollTo }) {
 
       {/* Tech ticker */}
       <div style={{ width: "100%", overflow: "hidden", maskImage: "linear-gradient(90deg,transparent,black 12%,black 88%,transparent)", animation: "fadeUp 0.6s 0.36s ease both" }}>
-        <div style={{ display: "flex", gap: 10, animation: "ticker 20s linear infinite", width: "max-content" }}>
+        <div style={{ display: "flex",
+flexWrap: "wrap", gap: 10, animation: "ticker 20s linear infinite", width: "max-content" }}>
           {[...TECH, ...TECH].map((t, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 7, padding: "9px 18px", borderRadius: 100, background: "#0f172a", border: "1px solid #1e293b", whiteSpace: "nowrap", flexShrink: 0 }}>
+            <div key={i} style={{ display: "flex",
+flexWrap: "wrap", alignItems: "center", gap: 7, padding: "9px 18px", borderRadius: 100, background: "#0f172a", border: "1px solid #1e293b", whiteSpace: "nowrap", flexShrink: 0 }}>
               <span style={{ fontSize: 13 }}>{t.icon}</span>
               <span style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: "#f1f5f9", fontWeight: 700 }}>{t.name}</span>
             </div>
@@ -108,7 +112,8 @@ export default function Hero({ scrollTo }) {
 
       {/* Scroll indicator */}
       <div
-        style={{ position: "absolute", bottom: 28, left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", animation: "bounceY 2s ease-in-out infinite" }}
+        style={{ position: "absolute", bottom: 28, left: "50%", transform: "translateX(-50%)", display: "flex",
+flexWrap: "wrap", flexDirection: "column", alignItems: "center", gap: 6, cursor: "pointer", animation: "bounceY 2s ease-in-out infinite" }}
         onClick={() => scrollTo("Projects")}
       >
         <span style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: "#1e293b", letterSpacing: "0.2em" }}>SCROLL</span>

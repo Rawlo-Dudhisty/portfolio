@@ -25,7 +25,8 @@ export default function Skills() {
           </h2>
           {SKILLS_DATA.map((s, i) => (
             <div key={s.name} style={{ marginBottom: 22, opacity: visible ? 1 : 0, transform: visible ? "none" : "translateX(-16px)", transition: `all 0.6s ease ${i * 0.08}s` }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+              <div style={{ display: "flex",
+flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                 <span style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: "#94a3b8", fontWeight: 700 }}>{s.name}</span>
                 <span style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: s.color, fontWeight: 700 }}>{visible ? s.pct : 0}%</span>
               </div>
@@ -40,7 +41,8 @@ export default function Skills() {
         {/* Tech grid */}
         <div ref={gridRef}>
           <div style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: "#334155", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 20 }}>// tech_stack</div>
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 24 }}>
+          <div style={{ display: "flex",
+flexWrap: "wrap", gap: 6, flexWrap: "wrap", marginBottom: 24 }}>
             {CATS.map((c) => (
               <button
                 key={c}
