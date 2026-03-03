@@ -14,8 +14,8 @@ export default function Skills() {
   const filtered = activecat === "All" ? TECH : TECH.filter((t) => t.cat === activecat);
 
   return (
-    <section id="skills" ref={ref} style={{ padding: "120px 24px", maxWidth: 1100, margin: "0 auto" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: 80, alignItems: "start" }}>
+    <section id="skills" ref={ref} style={{ padding: "120px 24px", maxWidth: 1100, margin: "0 auto",overflow: "hidden" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 80, alignItems: "start" }}>
 
         {/* Skill bars */}
         <div>
@@ -25,8 +25,7 @@ export default function Skills() {
           </h2>
           {SKILLS_DATA.map((s, i) => (
             <div key={s.name} style={{ marginBottom: 22, opacity: visible ? 1 : 0, transform: visible ? "none" : "translateX(-16px)", transition: `all 0.6s ease ${i * 0.08}s` }}>
-              <div style={{ display: "flex",
-flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                 <span style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: "#94a3b8", fontWeight: 700 }}>{s.name}</span>
                 <span style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: s.color, fontWeight: 700 }}>{visible ? s.pct : 0}%</span>
               </div>
@@ -41,8 +40,7 @@ flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", marginB
         {/* Tech grid */}
         <div ref={gridRef}>
           <div style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: "#334155", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 20 }}>// tech_stack</div>
-          <div style={{ display: "flex",
-flexWrap: "wrap", gap: 6, flexWrap: "wrap", marginBottom: 24 }}>
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 24 }}>
             {CATS.map((c) => (
               <button
                 key={c}
@@ -53,7 +51,7 @@ flexWrap: "wrap", gap: 6, flexWrap: "wrap", marginBottom: 24 }}>
               </button>
             ))}
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: 10 }}>
             {filtered.map((t, i) => (
               <div
                 key={t.name}

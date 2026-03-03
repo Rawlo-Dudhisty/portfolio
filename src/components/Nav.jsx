@@ -9,11 +9,29 @@ export default function Nav({ active, scrollTo }) {
   // ✅ detect mobile
   const [isMobile, setIsMobile] = useState(false);
 
+  // ✅ NEW: auto hide navbar
+  const [showNav, setShowNav] = useState(true);
+  const [lastScroll, setLastScroll] = useState(0);
+
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", fn);
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
+    const handleScroll = () => {
+      const current = window.scrollY;
+
+      setScrolled(current > 60);
+
+      // 🔥 hide on scroll down, show on scroll up
+      if (current > lastScroll && current > 80) {
+        setShowNav(false);
+      } else {
+        setShowNav(true);
+      }
+
+      setLastScroll(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScroll]);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -26,14 +44,17 @@ export default function Nav({ active, scrollTo }) {
     <nav
       style={{
         position: "fixed",
-        top: 10,
+
+        // 🔥 KEY CHANGE (auto hide)
+        top: showNav ? 10 : -80,
         left: "50%",
         transform: "translateX(-50%)",
+        transition: "top 0.3s ease",
+
         zIndex: 1000,
 
         display: "flex",
-        flexWrap: "wrap", // ✅ allow wrap
-
+        flexWrap: "wrap",
         alignItems: "center",
         justifyContent: "center",
 
@@ -57,7 +78,7 @@ export default function Nav({ active, scrollTo }) {
       <div
         style={{
           display: "flex",
-          flexWrap: "wrap", // ✅ wrap items
+          flexWrap: "wrap",
           justifyContent: "center",
           gap: 4,
         }}
@@ -78,9 +99,9 @@ export default function Nav({ active, scrollTo }) {
               borderRadius: 100,
               cursor: "pointer",
 
-              padding: isMobile ? "8px 12px" : "12px 24px", // ✅ smaller
+              padding: isMobile ? "8px 12px" : "12px 24px",
 
-              fontSize: isMobile ? 11 : 14, // ✅ smaller text
+              fontSize: isMobile ? 11 : 14,
               fontWeight: 700,
 
               color: active === n ? "#22d3ee" : "#475569",

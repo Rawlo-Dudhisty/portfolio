@@ -21,12 +21,11 @@ export default function Projects() {
   const filtered = PROJECTS.filter(FILTER_FN[activeFilter]);
 
   return (
-    <section id="projects" ref={ref} style={{ padding: "120px 24px", background: "#040810" }}>
+    <section id="projects" ref={ref} style={{ padding: "120px 24px", background: "#040810", overflow: "hidden" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
         {/* Header */}
-        <div style={{ display: "flex",
-flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 48, flexWrap: "wrap", gap: 20, opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(24px)", transition: "all 0.7s ease" }}>
+        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 48, flexWrap: "wrap", gap: 20, opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(24px)", transition: "all 0.7s ease" }}>
           <div>
             <div style={{ fontFamily: "'Courier New', monospace", fontSize: 10, color: "#22d3ee", letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: 10 }}>// projects</div>
             <h2 style={{ fontFamily: "Georgia, serif", fontSize: "clamp(2rem,4vw,3.5rem)", fontWeight: 900, color: "#f1f5f9", lineHeight: 1.05, letterSpacing: "-0.025em" }}>
@@ -34,8 +33,7 @@ flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", margi
             </h2>
           </div>
           {/* Filter pills */}
-          <div style={{ display: "flex",
-flexWrap: "wrap", gap: 6, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
             {FILTERS.map((f) => (
               <button
                 key={f}
@@ -49,7 +47,7 @@ flexWrap: "wrap", gap: 6, flexWrap: "wrap" }}>
         </div>
 
         {/* Cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(480px, 1fr))", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20 }}>
           {filtered.map((p, i) => (
             <div
               key={p.id}
@@ -71,18 +69,15 @@ flexWrap: "wrap", gap: 6, flexWrap: "wrap" }}>
               <div style={{ position: "absolute", top: -60, right: -60, width: 200, height: 200, borderRadius: "50%", background: `radial-gradient(circle, ${p.color}18 0%, transparent 70%)`, pointerEvents: "none", opacity: hovered === p.id ? 1 : 0, transition: "opacity 0.4s" }} />
 
               {/* Top row */}
-              <div style={{ display: "flex",
-flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", marginBottom: 20, position: "relative" }}>
-                <div style={{ display: "flex",
-flexWrap: "wrap", alignItems: "center", gap: 12 }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20, position: "relative" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                   <span style={{ fontSize: "2rem" }}>{p.emoji}</span>
                   <div>
                     <div style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: p.color, letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 700 }}>{p.tag} · {p.year}</div>
                     <div style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: "#1e293b", marginTop: 2 }}>{p.num}</div>
                   </div>
                 </div>
-                <div style={{ display: "flex",
-flexWrap: "wrap", alignItems: "center", gap: 6, padding: "5px 12px", borderRadius: 100, background: p.status === "Live" ? "#22c55e14" : "#facc1514", border: `1px solid ${p.status === "Live" ? "#22c55e33" : "#facc1533"}` }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 12px", borderRadius: 100, background: p.status === "Live" ? "#22c55e14" : "#facc1514", border: `1px solid ${p.status === "Live" ? "#22c55e33" : "#facc1533"}` }}>
                   <span style={{ width: 6, height: 6, borderRadius: "50%", background: p.status === "Live" ? "#22c55e" : "#facc15", display: "block", animation: "breathe 2s ease-in-out infinite" }} />
                   <span style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: p.status === "Live" ? "#22c55e" : "#facc15", fontWeight: 700 }}>{p.status}</span>
                 </div>
@@ -92,10 +87,9 @@ flexWrap: "wrap", alignItems: "center", gap: 6, padding: "5px 12px", borderRadiu
               <p style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: "#64748b", lineHeight: 1.75, marginBottom: 20 }}>{p.desc}</p>
 
               {/* Features */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 6, marginBottom: 20 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 6, marginBottom: 20 }}>
                 {p.features.map((f) => (
-                  <div key={f} style={{ display: "flex",
-flexWrap: "wrap", alignItems: "center", gap: 6 }}>
+                  <div key={f} style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <div style={{ width: 4, height: 4, borderRadius: "50%", background: p.color, flexShrink: 0 }} />
                     <span style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: "#334155" }}>{f}</span>
                   </div>
@@ -103,25 +97,21 @@ flexWrap: "wrap", alignItems: "center", gap: 6 }}>
               </div>
 
               {/* Stack tags */}
-              <div style={{ display: "flex",
-flexWrap: "wrap", flexWrap: "wrap", gap: 5, marginBottom: 22 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 22 }}>
                 {p.stack.map((s) => (
                   <span key={s} style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: "#475569", padding: "3px 9px", borderRadius: 6, background: "#0d1829", border: "1px solid #1a2744" }}>{s}</span>
                 ))}
               </div>
 
               {/* Links */}
-              <div style={{ display: "flex",
-flexWrap: "wrap", gap: 10 }}>
+              <div style={{ display: "flex", gap: 10 }}>
                 <a href={p.liveUrl}
-                  style={{ display: "flex",
-flexWrap: "wrap", alignItems: "center", gap: 6, padding: "9px 18px", borderRadius: 10, background: p.color + "18", border: `1px solid ${p.color}44`, textDecoration: "none", fontFamily: "'Courier New', monospace", fontSize: 14, fontWeight: 700, color: p.color, transition: "background 0.2s" }}
+                  style={{ display: "flex", alignItems: "center", gap: 6, padding: "9px 18px", borderRadius: 10, background: p.color + "18", border: `1px solid ${p.color}44`, textDecoration: "none", fontFamily: "'Courier New', monospace", fontSize: 14, fontWeight: 700, color: p.color, transition: "background 0.2s" }}
                   onMouseEnter={(e) => e.currentTarget.style.background = p.color + "2e"}
                   onMouseLeave={(e) => e.currentTarget.style.background = p.color + "18"}
                 >↗ Live Demo</a>
                 <a href={p.githubUrl}
-                  style={{ display: "flex",
-flexWrap: "wrap", alignItems: "center", gap: 6, padding: "9px 18px", borderRadius: 10, background: "#0d1829", border: "1px solid #1a2744", textDecoration: "none", fontFamily: "'Courier New', monospace", fontSize: 14, color: "#475569", transition: "all 0.2s" }}
+                  style={{ display: "flex", alignItems: "center", gap: 6, padding: "9px 18px", borderRadius: 10, background: "#0d1829", border: "1px solid #1a2744", textDecoration: "none", fontFamily: "'Courier New', monospace", fontSize: 14, color: "#475569", transition: "all 0.2s" }}
                   onMouseEnter={(e) => { e.currentTarget.style.color = "#94a3b8"; e.currentTarget.style.borderColor = "#334155"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.color = "#475569"; e.currentTarget.style.borderColor = "#1a2744"; }}
                 >⬡ GitHub</a>

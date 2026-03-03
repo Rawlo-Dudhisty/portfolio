@@ -65,39 +65,46 @@ export default function Contact() {
     return Object.keys(e).length === 0;
   };
 
-  const handleSend = async () => {
-    if (!validate()) return;
+ const handleSend = async () => {
+  if (!validate()) return;
 
-    setLoading(true);
+  setLoading(true);
 
-    try {
-      const res = await fetch("http://localhost:5000/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      });
+  try {
+    const res = await fetch("http://localhost:5000/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
 
-      const data = await res.json();
+    const data = await res.json();
 
-      if (data.success) {
-        setSent(true);
-      }
-    } catch (err) {
-      console.log("ERROR:", err); // ✅ FIXED (removed res)
+    if (data.success) {
+      setSent(true);
     }
+  } catch (err) {
+  console.log("ERROR:", err); 
+  res.status(500).json({ error: "Failed to send" });
+ }
 
-    setLoading(false);
-  };
+  setLoading(false);
+};
 
   return (
     <section
       id="contact"
       ref={ref}
-      style={{ padding: "clamp(60px, 10vw, 120px) 16px", position: "relative" }}
+      style={{ padding: "120px 24px 80px", position: "relative",overflowX: "hidden" }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <div
+        style={{
+          maxWidth: 1200,
+          margin: "0 auto",
+          position: "relative",
+        }}
+      >
         <div
           style={{
             display: "grid",
@@ -105,7 +112,7 @@ export default function Contact() {
             gap: 72,
           }}
         >
-          {/* 🔥 LEFT (UPGRADED) */}
+          {/* LEFT */}
           <div
             style={{
               opacity: visible ? 1 : 0,
@@ -114,103 +121,15 @@ export default function Contact() {
             }}
           >
             <h2 className="hero-title">
-              Let’s build something impactful
+              Let&apos;s build something great
             </h2>
 
-            <p
-              style={{
-                color: "#64748b",
-                lineHeight: 1.8,
-                marginBottom: 30,
-                maxWidth: 420,
-              }}
-            >
-              I build modern full-stack and AI-powered applications that
-              are fast, scalable, and user-focused. Share your idea —
-              let’s turn it into a real product.
+            <p style={{ color: "#64748b", lineHeight: 1.8 }}>
+              Tell me about your idea — I’ll reply within 24 hours with a plan.
             </p>
-
-            {/* CONTACT INFO */}
-            <div style={{ marginBottom: 30 }}>
-              {[
-                ["📧", PERSONAL.email],
-                ["🎓", PERSONAL.college || "Your College"],
-                ["⚡", "Reply within 24 hours"],
-                ["🌍", "Remote • Open to work"],
-              ].map(([icon, text], i) => (
-                <div
-                  key={i}
-                  style={{
-                    display: "flex",
-flexWrap: "wrap",
-                    alignItems: "center",
-                    gap: 10,
-                    marginBottom: 12,
-                    color: "#94a3b8",
-                    fontSize: 14,
-                    fontFamily: "'Courier New', monospace",
-                  }}
-                >
-                  <span>{icon}</span>
-                  <span>{text}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* STATUS CARD */}
-            <div
-              style={{
-                padding: 20,
-                borderRadius: 16,
-                background: "#060c18",
-                border: "1px solid #22c55e22",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-flexWrap: "wrap",
-                  alignItems: "center",
-                  gap: 8,
-                  marginBottom: 8,
-                }}
-              >
-                <span
-                  style={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: "50%",
-                    background: "#22c55e",
-                    boxShadow: "0 0 10px #22c55e",
-                  }}
-                />
-                <span
-                  style={{
-                    color: "#22c55e",
-                    fontWeight: 700,
-                    fontSize: 14,
-                    fontFamily: "'Courier New', monospace",
-                  }}
-                >
-                  Available for Work
-                </span>
-              </div>
-
-              <p
-                style={{
-                  color: "#475569",
-                  fontSize: 14,
-                  lineHeight: 1.7,
-                  fontFamily: "'Courier New', monospace",
-                }}
-              >
-                Open to freelance projects and collaborations in full-stack
-                development and AI integration.
-              </p>
-            </div>
           </div>
 
-          {/* RIGHT FORM (UNCHANGED BUT CLEAN) */}
+          {/* RIGHT FORM */}
           <div
             style={{
               opacity: visible ? 1 : 0,
@@ -220,7 +139,7 @@ flexWrap: "wrap",
           >
             {sent ? (
               <div style={{ textAlign: "center", padding: 60 }}>
-                <h3 style={{ color: "#22d3ee" }}>Message Sent 🚀</h3>
+                <h3 style={{ color: "#22d3ee" }}>Message Sent </h3>
                 <button onClick={() => setSent(false)}>Send Again</button>
               </div>
             ) : (
@@ -232,6 +151,7 @@ flexWrap: "wrap",
                   border: "1px solid #0f1a2e",
                 }}
               >
+                {/* Name + Email */}
                 <div
                   style={{
                     display: "grid",
@@ -267,6 +187,7 @@ flexWrap: "wrap",
                   </div>
                 </div>
 
+                {/* Project Type */}
                 <div style={{ marginBottom: 20 }}>
                   {lbl("Project Type")}
                   <select
@@ -284,6 +205,7 @@ flexWrap: "wrap",
                   </select>
                 </div>
 
+                {/* Message */}
                 <div style={{ marginBottom: 20 }}>
                   {lbl("Message", true)}
                   <textarea

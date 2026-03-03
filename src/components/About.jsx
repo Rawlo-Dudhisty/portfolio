@@ -13,9 +13,9 @@ export default function About() {
   const [tIdx, setTIdx] = useState(0);
 
   return (
-    <section id="about" ref={ref} style={{ padding: "120px 24px", background: "#040810" }}>
+    <section id="about" ref={ref} style={{ padding: "120px 24px", background: "#040810",overflowX: "hidden", }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 72, alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 72, alignItems: "start" }}>
 
           {/* Left — Bio */}
           <div style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(28px)", transition: "all 0.7s ease" }}>
@@ -26,16 +26,14 @@ export default function About() {
 
             {/* Profile card */}
             <div style={{ borderRadius: 16, padding: 22, background: "#060c18", border: "1px solid #0f1a2e", marginBottom: 24 }}>
-              <div style={{ display: "flex",
-flexWrap: "wrap", alignItems: "center", gap: 14, marginBottom: 18 }}>
-                <div style={{ width: 52, height: 52, borderRadius: "50%", background: "linear-gradient(135deg,#22d3ee,#a78bfa)", display: "flex",
-flexWrap: "wrap", alignItems: "center", justifyContent: "center", fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 22, color: "#030711", flexShrink: 0 }}>R</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
+                <div style={{ width: 52, height: 52, borderRadius: "50%", background: "linear-gradient(135deg,#22d3ee,#a78bfa)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 22, color: "#030711", flexShrink: 0 }}>R</div>
                 <div>
                   <div style={{ fontFamily: "Georgia, serif", fontWeight: 900, fontSize: "1.15rem", color: "#f1f5f9" }}>{PERSONAL.name}</div>
                   <div style={{ fontFamily: "'Courier New', monospace", fontSize: 16, color: "#22d3ee", marginTop: 2 }}>{PERSONAL.role}</div>
                 </div>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 8 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 8 }}>
                 {[
                   ["🎓", "NIST Berhampur", "CSE 2022–2026"],
                   ["📍", "Berhampur, Odisha", "Open to Remote"],
@@ -55,8 +53,7 @@ flexWrap: "wrap", alignItems: "center", justifyContent: "center", fontFamily: "G
               I&apos;m honest about being a <strong style={{ color: "#22d3ee" }}>beginner who ships</strong>. Every project is a chance to level up — and clients get someone who is hungry, detail-obsessed, and 100% committed to results.
             </p>
 
-            <div style={{ display: "flex",
-flexWrap: "wrap", gap: 8, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
               {[
                 ["⬡ GitHub",   PERSONAL.githubUrl],
                 ["in LinkedIn", PERSONAL.linkedinUrl],
@@ -85,8 +82,7 @@ flexWrap: "wrap", gap: 8, flexWrap: "wrap" }}>
             ].map(([num, title, desc]) => (
               <div
                 key={num}
-                style={{ display: "flex",
-flexWrap: "wrap",gap: 14,alignItems: "flex-start",width: "100%", marginBottom: 12, padding: "14px 18px", borderRadius: 12, background: "#060c18", border: "1px solid #0f1a2e", transition: "border-color 0.25s" }}
+                style={{ display: "flex",gap: 14,alignItems: "flex-start",width: "100%", marginBottom: 12, padding: "14px 18px", borderRadius: 12, background: "#060c18", border: "1px solid #0f1a2e", transition: "border-color 0.25s" }}
                 onMouseEnter={(e) => e.currentTarget.style.borderColor = "#22d3ee22"}
                 onMouseLeave={(e) => e.currentTarget.style.borderColor = "#0f1a2e"}
               >
