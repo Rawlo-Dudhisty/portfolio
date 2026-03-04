@@ -46,7 +46,7 @@ export default function Nav({ active, scrollTo }) {
         position: "fixed",
 
         // 🔥 KEY CHANGE (auto hide)
-        top: showNav ? 10 : -80,
+        top: showNav ? 10 : -60,
         left: "50%",
         transform: "translateX(-50%)",
         transition: "top 0.3s ease",

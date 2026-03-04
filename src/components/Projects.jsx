@@ -21,7 +21,7 @@ export default function Projects() {
   const filtered = PROJECTS.filter(FILTER_FN[activeFilter]);
 
   return (
-    <section id="projects" ref={ref} style={{ padding: "120px 24px", background: "#040810", overflow: "hidden" }}>
+    <section id="projects" ref={ref} style={{ padding: "120px 24px 60px", background: "#040810", overflow: "hidden" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
         {/* Header */}
@@ -120,7 +120,7 @@ export default function Projects() {
           ))}
         </div>
 
-        <div style={{ marginTop: 40, textAlign: "center", opacity: visible ? 1 : 0, transition: "opacity 1.2s 0.5s" }}>
+        <div style={{ marginTop: 20, textAlign: "center", opacity: visible ? 1 : 0, transition: "opacity 1.2s 0.5s" }}>
           <span style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: "#1e293b" }}>✦ More projects in progress · Star me on GitHub ✦</span>
         </div>
       </div>

@@ -14,7 +14,7 @@ export default function Skills() {
   const filtered = activecat === "All" ? TECH : TECH.filter((t) => t.cat === activecat);
 
   return (
-    <section id="skills" ref={ref} style={{ padding: "120px 24px", maxWidth: 1100, margin: "0 auto",overflow: "hidden" }}>
+    <section id="skills" ref={ref} style={{ padding: "60px 24px 120px", maxWidth: 1100, margin: "0 auto",overflow: "hidden" }}>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 80, alignItems: "start" }}>
 
         {/* Skill bars */}

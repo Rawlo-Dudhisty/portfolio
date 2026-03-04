@@ -43,7 +43,7 @@ export const PROJECTS = [
     year: "2025",
     desc: "Full-stack forensic code analysis engine. Paste a GitHub URL — it clones the repo, runs Python static analysis, feeds results to Google API and streams a live security + architecture report with a health score.",
     stack: ["Next.js", " API", "Python", "Node.js", "MongoDB", "WebSocket"],
-    color: "#d3ee",
+    color: "rgba(105, 162, 167, 0.93)",
     status: "Live",
     features: [
       "Real-time analysis stream",
