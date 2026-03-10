@@ -25,7 +25,7 @@ export const TECH = [
   { name: "TypeScript", icon: "TS", color: "#3b82f6", cat: "Frontend" },
   { name: "Node.js",    icon: "⬡",  color: "#84cc16", cat: "Backend"  },
   { name: "Express",    icon: "⚡", color: "#94a3b8", cat: "Backend"  },
-  { name: "Python",     icon: "🐍", color: "#facc15", cat: "Backend"  },
+  { name: "Python",     icon: "", color: "#facc15", cat: "Backend"  },
   { name: "REST APIs",  icon: "⇌",  color: "#f97316", cat: "Backend"  },
   { name: "MongoDB",    icon: "🍃", color: "#4ade80", cat: "Database" },
   { name: "PostgreSQL", icon: "🐘", color: "#60a5fa", cat: "Database" },
@@ -113,6 +113,30 @@ export const PROJECTS = [
     ],
     liveUrl: "#",
     githubUrl: "https://github.com/Rawlo-Dudhisty/MFS",
+  },
+  {
+  id: 5,
+  num: "05",
+  title: "Text Emotion",
+  tag: "AI/ML Web App",
+  emoji: "🎭",
+  year: "2024",
+  desc: "AI-powered emotion detection system that analyzes facial expressions in real time using computer vision and deep learning. The system detects emotions such as happiness, sadness, anger, surprise, and fear to enable human-computer interaction and sentiment analysis.",
+  
+  stack: ["Python", "OpenCV", "TensorFlow", "Flask", "BERT model"],
+
+  color: "#379224",
+  status: "Live",
+
+  features: [
+    "Real-time face detection",
+    "Emotion classification",
+    "Webcam emotion recognition",
+    "AI model prediction dashboard"
+  ],
+
+  liveUrl: "#",
+  githubUrl: "https://github.com/Rawlo-Dudhisty/Emotion-Detection"
   },
 ];
 
